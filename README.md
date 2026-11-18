@@ -113,6 +113,11 @@ Municipalities may correct their DCA after the deadline, so a new download may d
   1% tails of spending per student, where very small enrollment counts or accounting errors produce
   implausible values; it gives larger coefficients without controls in 2023 (0.081) and the same
   conclusion with the INSE (0.010).
+- **School cost table** (script 04): only taxes on revenue and profit are deducted from private tuition,
+  from 7.5% (Simples Nacional, Anexo III, revenue of R$ 1.26 million, without the employer social
+  security contribution, 43.4% of the payment) to 19.5% (lucro presumido, ISS of 5%). The employer
+  contribution on payroll is left on both sides, because it is also part of the public spending. The
+  municipal spending of 2023 is put in 2025 reais (IPCA, annual means), the year of the tuition survey.
 - **Approving every student**: flow indicator of the Ideb (`VL_INDICADOR_REND_2023`) of 1.00.
 - **IDHM**: 2010, from the Atlas do Desenvolvimento Humano (Ipeadata, series `ADH_IDHM`).
   **Population**: Censo 2022 (IBGE, table 4709).
