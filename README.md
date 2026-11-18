@@ -112,9 +112,9 @@ files with a browser into `data/inep/`.
 
 The regressions describe associations across municipalities; they are not causal estimates. The INSE
 measures the students who took the Saeb, not the whole network. Very high Ideb values in networks
-with low socioeconomic level (for example, 10.0 in one municipality in 2023) may reflect problems in
-the measurement and are one reason the essay reports the 10th and 90th percentiles of each band and
-not only the extremes.
+with low socioeconomic level are concentrated in Ceará, which distributes 18% of the municipal share
+of the ICMS by an education index (state law 14,023/2007); the essay discusses this policy and the
+checks for manipulation.
 
 ## License
 
