@@ -93,7 +93,7 @@ def figura_faixas(b, arq):
     tam = lambda p: 1.5 + np.sqrt(np.minimum(p, 1.5e6)) / 16
     rng = np.random.default_rng(1)
     b['y'] = b.f + rng.uniform(-0.33, 0.33, len(b))
-    fig, ax = plt.subplots(figsize=(6.3, 4.9))
+    fig, ax = plt.subplots(figsize=(6.3, 4.2))
     b = b.sort_values('pop2022', ascending=False)
     for r, m in forma.items():
         s = b[b.regiao == r]
@@ -131,7 +131,7 @@ def figura_idhm(b, arq):
     b = b.dropna(subset=['idhm', 'pop2022'])
     cor = {'NO': '#1b9e77', 'NE': '#e07b39', 'CO': '#8c6bb1', 'SE': '#2a78d6', 'SU': '#9a9a9a'}
     tam = lambda p: 1.2 + np.sqrt(np.minimum(p, 1.5e6)) / 14
-    fig, ax = plt.subplots(figsize=(6.3, 4.4))
+    fig, ax = plt.subplots(figsize=(6.3, 3.8))
     ax.axhspan(8, 10.3, color='#f3efe6', zorder=0)
     ax.axhspan(1.8, 4, color='#f3efe6', zorder=0)
     bb = b.sort_values('pop2022', ascending=False)
