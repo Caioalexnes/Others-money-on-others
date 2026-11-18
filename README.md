@@ -6,7 +6,7 @@ Code, intermediate results and data extracts for the section on basic education 
 ([higher-education-analysis](https://github.com/Caioalexnes/higher-education-analysis)) and health
 ([Analysis-of-the-Brazilian-Unified-Health-System-SUS-](https://github.com/Caioalexnes/Analysis-of-the-Brazilian-Unified-Health-System-SUS-)).
 
-The repository does two things:
+The repository does three things:
 
 1. It recomputes, from public data, the relation between spending per student and the Ideb of
    Brazil's municipal school networks reported by Todos Pela Educação (2025), *Relação entre
@@ -14,6 +14,9 @@ The repository does two things:
    socioeconomic level of the students measured by Inep.
 2. It reproduces the arithmetic of the essay's comparison between municipal network spending per
    student and private school tuition (taxes, school meals and transport).
+3. It describes the municipal networks with an Ideb of the early grades below 4 or above 8 in 2023
+   and uses the Enem as an outside check on the Ideb of Ceará, where part of the municipal share of
+   the ICMS is distributed by an education index.
 
 All data are public.
 
@@ -37,6 +40,26 @@ early grades varies by about 2 points between the 10th and the 90th percentile, 
 highest-spending band (above R$ 20,000, mean 6.31) is about 1 point above that of the lowest
 (below R$ 8,000, mean 5.28). See `results/03_regressoes.csv` and `results/03_faixas.csv`.
 
+### Networks below 4 and above 8
+
+In 2023, 49 of the 5,229 municipal networks had an Ideb of the early grades above 8 and 106 below 4.
+Of the 49, 36 are in the Northeast (24 in Ceará and 9 in Alagoas); of the 106, 103 are in the North
+and the Northeast. Both groups have a lower IDHM (medians 0.61 and 0.56, against 0.67 for all
+networks) and a lower socioeconomic level of the students (Inse medians 4.38 and 4.32, against 4.92),
+and spend less per student (medians of R$ 10,555 and R$ 10,046, against R$ 12,657). In Ceará, 88% of
+the networks approve every student in the early grades, against 41% in the South, Southeast and
+Centre-West. See `results/06_resumo.csv`, `results/06_extremos.csv` and `results/06_aprovacao.csv`.
+
+### The Enem as an outside check
+
+Among students finishing public high school in 2023, Ceará ranks 21st of 27 states on the simple mean
+of the Enem and 6th on the mean of the best students up to 25% of the 3rd-year enrollment, because
+78% of its 3rd-year students take the exam, against 34% in São Paulo (`results/07_enem_uf.csv`).
+Following the same generation across municipalities: outside Ceará, the municipalities in the top 5%
+of the 2015 Ideb of the early grades stand, in 2023, at the 79th percentile of the Enem (median); in
+Ceará, at the 46th. In the 9th-grade Saeb of 2019, which counts for the Ideb, the advantage of
+Ceará's top networks still shows (`results/07_enem_quintis.csv`, `results/07_enem_topo.csv`).
+
 ## Scripts (`code/`)
 
 | Script | What it does | Output |
@@ -47,8 +70,10 @@ highest-spending band (above R$ 20,000, mean 6.31) is about 1 point above that o
 | `03_gasto_ideb.py` | Spending per student, Ideb and INSE by municipality; regressions with and without the INSE; Ideb by band of spending | `results/03_base_municipios.csv`, `results/03_regressoes.csv`, `results/03_faixas.csv` |
 | `04_custo_escola.py` | Arithmetic of the table "O que sobra para ensinar" (municipal spending versus private tuition after taxes) | `results/04_custo_escola.csv` |
 | `05_figura_ideb.py` | pgfplots code of the essay's figure on the Ideb by band of spending | `results/05_figura_ideb.tex` |
+| `06_extremos.py` | Profile of the networks with an Ideb below 4 or above 8 (region, population, IDHM, Inse, spending, approval) and two figures of the essay | `results/06_*.csv`, `results/06_fig_*.pdf` |
+| `07_enem.py` | Enem 2023 by state and by municipality of the school, compared with the 2015 Ideb of the municipal network and its 2019 9th-grade Saeb; figure of the essay | `results/07_*.csv`, `results/07_fig_enem.pdf` |
 
-Run them in order from `code/` with Python 3 (pandas, numpy and openpyxl):
+Run them in order from `code/` with Python 3 (pandas, numpy, openpyxl and matplotlib):
 
 ```
 python 00_download.py
@@ -57,6 +82,8 @@ python 02_matriculas.py 2017 2019 2023
 python 03_gasto_ideb.py
 python 04_custo_escola.py
 python 05_figura_ideb.py
+python 06_extremos.py
+python 07_enem.py
 ```
 
 Script 01 makes one API call per municipality and year (about 17,000 calls for three years; about seven
@@ -86,6 +113,18 @@ Municipalities may correct their DCA after the deadline, so a new download may d
   1% tails of spending per student, where very small enrollment counts or accounting errors produce
   implausible values; it gives larger coefficients without controls in 2023 (0.081) and the same
   conclusion with the INSE (0.010).
+- **Approving every student**: flow indicator of the Ideb (`VL_INDICADOR_REND_2023`) of 1.00.
+- **IDHM**: 2010, from the Atlas do Desenvolvimento Humano (Ipeadata, series `ADH_IDHM`).
+  **Population**: Censo 2022 (IBGE, table 4709).
+- **Enem**: students finishing public high school in 2023 (`TP_ST_CONCLUSAO` = 2, `TP_ESCOLA` = 2)
+  present on both days; the score is the mean of the four objective tests. Because the share of
+  students who take the exam varies a lot, states and municipalities are compared by the mean of the
+  best students up to a fixed share of the 3rd-year enrollment in public high schools (25%; 20% and
+  30% as checks), from the Censo Escolar 2023. Only 64% of the students name the municipality of their
+  school (90% in Ceará, 43% to 73% elsewhere); at the municipal level the share is scaled by that
+  proportion in each state. Municipal sample: at least 50 students in the 3rd year, students naming
+  the school at least a quarter of them, and an Ideb of the municipal network in 2015 (1,871
+  municipalities, 181 in Ceará).
 
 ## Data
 
@@ -96,6 +135,9 @@ Municipalities may correct their DCA after the deadline, so a new download may d
 | `divulgacao_anos_{iniciais,finais}_municipios_2025.zip` | Inep, Ideb, resultados 2005-2025, `https://download.inep.gov.br/ideb/resultados/` |
 | `INSE_2019_MUNICIPIOS.xlsx`, `INSE_2023_municipios.xlsx` | Inep, Indicador de Nível Socioeconômico, `https://download.inep.gov.br/informacoes_estatisticas/indicadores_educacionais/` |
 | `ipca_1737.json` | IBGE, SIDRA, table 1737 (IPCA, número-índice), `https://apisidra.ibge.gov.br/` |
+| `pop_censo2022.json` | IBGE, SIDRA, table 4709 (resident population, Censo 2022), `https://apisidra.ibge.gov.br/` |
+| `idhm_ipeadata.json` | Ipea, Ipeadata, series ADH_IDHM (IDHM 2010, Atlas do Desenvolvimento Humano), `https://www.ipeadata.gov.br/api/` |
+| `microdados_enem_2023.zip` | Inep, Microdados do Enem 2023, `https://download.inep.gov.br/microdados/` |
 
 SHA-256 checksums of the files used are in `DATA_SHA256SUMS.txt`. The Inep files are not included
 because of their size.
@@ -114,7 +156,10 @@ The regressions describe associations across municipalities; they are not causal
 measures the students who took the Saeb, not the whole network. Very high Ideb values in networks
 with low socioeconomic level are concentrated in Ceará, which distributes 18% of the municipal share
 of the ICMS by an education index (state law 14,023/2007); the essay discusses this policy and the
-checks for manipulation.
+checks for manipulation. The Enem is taken at the end of high school, which is run by the state;
+part of the difference in Ceará may come from the state high schools (some of which select students
+by their grades) and not from the municipal networks. The correction for the students who do not name
+their school assumes that, within a state, they do not differ from those who do.
 
 ## License
 
