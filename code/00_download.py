@@ -1,0 +1,38 @@
+"""Download the public files used by the scripts into DADOS (default: ../data).
+
+Inep's download server (download.inep.gov.br) does not send the intermediate certificate of its TLS
+chain, so a plain download fails certificate verification. The intermediate certificate, issued by
+GlobalSign to RNP, is public and included in certs/; it is added to the usual root certificates, and
+verification stays on. Siconfi spending is downloaded by script 01 and the IPCA from IBGE's API.
+Usage: python 00_download.py
+"""
+import os, ssl, urllib.request
+from config import DADOS
+
+AQUI = os.path.dirname(os.path.abspath(__file__))
+INEP = 'https://download.inep.gov.br/'
+ARQUIVOS = {
+    'inep/microdados_censo_escolar_2017.zip': INEP + 'dados_abertos/microdados_censo_escolar_2017.zip',
+    'inep/microdados_censo_escolar_2019.zip': INEP + 'dados_abertos/microdados_censo_escolar_2019.zip',
+    'inep/microdados_censo_escolar_2023.zip': INEP + 'dados_abertos/microdados_censo_escolar_2023.zip',
+    'inep/divulgacao_anos_iniciais_municipios_2025.zip': INEP + 'ideb/resultados/divulgacao_anos_iniciais_municipios_2025.zip',
+    'inep/divulgacao_anos_finais_municipios_2025.zip': INEP + 'ideb/resultados/divulgacao_anos_finais_municipios_2025.zip',
+    'inep/INSE_2019_MUNICIPIOS.xlsx': INEP + 'informacoes_estatisticas/indicadores_educacionais/2019/nivel_socioeconomico/INSE_2019_MUNICIPIOS.xlsx',
+    'inep/INSE_2023_municipios.xlsx': INEP + 'informacoes_estatisticas/indicadores_educacionais/2023/nivel_socioeconomico/INSE_2023_municipios.xlsx',
+    'ipca_1737.json': 'https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/201612-202512',
+}
+
+if __name__ == '__main__':
+    ctx = ssl.create_default_context()
+    ctx.load_verify_locations(os.path.join(AQUI, '..', 'certs', 'rnp_icpedu_gr46_ov_tls_ca_2025.pem'))
+    for destino, url in ARQUIVOS.items():
+        caminho = os.path.join(DADOS, destino)
+        if os.path.exists(caminho):
+            continue
+        os.makedirs(os.path.dirname(caminho), exist_ok=True)
+        with urllib.request.urlopen(url, context=ctx, timeout=600) as r, open(caminho, 'wb') as f:
+            f.write(r.read())
+        print('ok', destino)
+    for z in ('divulgacao_anos_iniciais_municipios_2025', 'divulgacao_anos_finais_municipios_2025'):
+        import zipfile
+        zipfile.ZipFile(os.path.join(DADOS, 'inep', z + '.zip')).extractall(os.path.join(DADOS, 'inep'))

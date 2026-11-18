@@ -1,0 +1,6 @@
+data/inep/
+data/siconfi/entes.json
+data/siconfi/done_*.txt
+data/siconfi/log.txt
+__pycache__/
+*.pyc

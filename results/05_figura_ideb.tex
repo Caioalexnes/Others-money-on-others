@@ -1,0 +1,53 @@
+\begin{tikzpicture}
+\begin{axis}[estilo,
+  scale only axis, width=0.62\textwidth, height=6.4cm,
+  xmin=0, xmax=10, ymin=0.4, ymax=8.6,
+  xtick={0,2,4,6,8,10},
+  ytick={1,2,3,4,5,6,7,8}, yticklabels={{até R\$ 8 mil},{R\$ 8 a 10 mil},{R\$ 10 a 12 mil},{R\$ 12 a 14 mil},{R\$ 14 a 16 mil},{R\$ 16 a 18 mil},{R\$ 18 a 20 mil},{acima de R\$ 20 mil}},
+  xlabel={Ideb do 5º ano em 2023},
+  xmajorgrids, grid style={draw=tinta!15},
+  axis x line*=bottom, axis y line*=left,
+  clip=false]
+\draw[tinta!45, line width=0.6pt] (axis cs:3.7,1) -- (axis cs:7.9,1);
+\draw[serie, line width=4pt] (axis cs:4.20,1) -- (axis cs:6.70,1);
+\node[left=2pt, font=\footnotesize, text=tinta] at (axis cs:3.7,1) {3,7};
+\node[right=2pt, font=\footnotesize, text=tinta] at (axis cs:7.9,1) {7,9};
+\filldraw[fill=white, draw=serie, line width=1pt] (axis cs:5.28,1) circle (2.6pt);
+\draw[tinta!45, line width=0.6pt] (axis cs:2.5,2) -- (axis cs:10.0,2);
+\draw[serie, line width=4pt] (axis cs:4.20,2) -- (axis cs:6.37,2);
+\node[left=2pt, font=\footnotesize, text=tinta] at (axis cs:2.5,2) {2,5};
+\node[right=2pt, font=\footnotesize, text=tinta] at (axis cs:10.0,2) {10,0};
+\filldraw[fill=white, draw=serie, line width=1pt] (axis cs:5.23,2) circle (2.6pt);
+\draw[tinta!45, line width=0.6pt] (axis cs:3.0,3) -- (axis cs:9.7,3);
+\draw[serie, line width=4pt] (axis cs:4.40,3) -- (axis cs:6.80,3);
+\node[left=2pt, font=\footnotesize, text=tinta] at (axis cs:3.0,3) {3,0};
+\node[right=2pt, font=\footnotesize, text=tinta] at (axis cs:9.7,3) {9,7};
+\filldraw[fill=white, draw=serie, line width=1pt] (axis cs:5.56,3) circle (2.6pt);
+\draw[tinta!45, line width=0.6pt] (axis cs:3.1,4) -- (axis cs:9.6,4);
+\draw[serie, line width=4pt] (axis cs:4.70,4) -- (axis cs:6.90,4);
+\node[left=2pt, font=\footnotesize, text=tinta] at (axis cs:3.1,4) {3,1};
+\node[right=2pt, font=\footnotesize, text=tinta] at (axis cs:9.6,4) {9,6};
+\filldraw[fill=white, draw=serie, line width=1pt] (axis cs:5.91,4) circle (2.6pt);
+\draw[tinta!45, line width=0.6pt] (axis cs:3.3,5) -- (axis cs:8.3,5);
+\draw[serie, line width=4pt] (axis cs:5.00,5) -- (axis cs:7.00,5);
+\node[left=2pt, font=\footnotesize, text=tinta] at (axis cs:3.3,5) {3,3};
+\node[right=2pt, font=\footnotesize, text=tinta] at (axis cs:8.3,5) {8,3};
+\filldraw[fill=white, draw=serie, line width=1pt] (axis cs:6.06,5) circle (2.6pt);
+\draw[tinta!45, line width=0.6pt] (axis cs:3.7,6) -- (axis cs:8.9,6);
+\draw[serie, line width=4pt] (axis cs:5.10,6) -- (axis cs:7.10,6);
+\node[left=2pt, font=\footnotesize, text=tinta] at (axis cs:3.7,6) {3,7};
+\node[right=2pt, font=\footnotesize, text=tinta] at (axis cs:8.9,6) {8,9};
+\filldraw[fill=white, draw=serie, line width=1pt] (axis cs:6.16,6) circle (2.6pt);
+\draw[tinta!45, line width=0.6pt] (axis cs:3.4,7) -- (axis cs:9.3,7);
+\draw[serie, line width=4pt] (axis cs:5.20,7) -- (axis cs:7.10,7);
+\node[left=2pt, font=\footnotesize, text=tinta] at (axis cs:3.4,7) {3,4};
+\node[right=2pt, font=\footnotesize, text=tinta] at (axis cs:9.3,7) {9,3};
+\filldraw[fill=white, draw=serie, line width=1pt] (axis cs:6.19,7) circle (2.6pt);
+\draw[tinta!45, line width=0.6pt] (axis cs:4.2,8) -- (axis cs:8.7,8);
+\draw[serie, line width=4pt] (axis cs:5.40,8) -- (axis cs:7.20,8);
+\node[left=2pt, font=\footnotesize, text=tinta] at (axis cs:4.2,8) {4,2};
+\node[right=2pt, font=\footnotesize, text=tinta] at (axis cs:8.7,8) {8,7};
+\filldraw[fill=white, draw=serie, line width=1pt] (axis cs:6.31,8) circle (2.6pt);
+\node[above=4pt, font=\footnotesize, text=tinta] at (axis cs:6.31,8) {média};
+\end{axis}
+\end{tikzpicture}

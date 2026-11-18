@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "Basic education in Brazil: spending per student and learning (code for the essay Dinheiro dos Outros nos Outros)"
+version: "0.1"
+date-released: 2026-11-18
+authors:
+  - family-names: Cunha
+    given-names: "Caio A. F."
+    orcid: "https://orcid.org/0009-0008-2153-901X"
+    affiliation: "Independent researcher"
+repository-code: "https://github.com/Caioalexnes/Basic-Education-Analysis-"
+license: MIT
