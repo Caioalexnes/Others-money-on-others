@@ -19,6 +19,7 @@ The repository does three things:
    the ICMS is distributed by an education index.
 4. It extends the series to 2025 and tests whether the larger 2025 coefficient measures an effect of
    money or money going to networks that were already doing well.
+5. It compares public and private schools in the Saeb 2023, net of the students' socioeconomic level.
 
 All data are public.
 
@@ -85,6 +86,28 @@ of the 2015 Ideb of the early grades stand, in 2023, at the 79th percentile of t
 Ceará, at the 46th. In the 9th-grade Saeb of 2019, which counts for the Ideb, the advantage of
 Ceará's top networks still shows (`results/07_enem_quintis.csv`, `results/07_enem_topo.csv`).
 
+### Public and private schools in the Saeb 2023
+
+Difference between private and public students in the Saeb 2023, in points of the Saeb scale
+(student standard deviation of about 53 points), from the student microdata with Inep's sampling
+weights; standard errors clustered by school. The raw means match Inep's release (5th grade
+mathematics: 218.3 public, 254.3 private).
+
+| Mathematics | 5th grade | 9th grade | Ensino médio |
+|---|---|---|---|
+| No control | 34.6 (1.1) | 44.7 (1.5) | 50.1 (3.4) |
+| Student's INSE | 18.7 (0.9) | 31.0 (1.2) | 39.1 (2.8) |
+| Also the school's mean INSE | 2.4 (0.8) | 17.1 (1.1) | 25.6 (2.2) |
+| Also state x location fixed effects | 0.2 (1.2) | 9.1 (1.4) | 11.6 (2.0) |
+
+In Portuguese the last row is 2.2, 4.4 and 4.5. These are not causal estimates, and the selection
+biases go both ways: families who pay for school are likely more motivated in ways the INSE does not
+measure; the public side includes federal and military schools that select students (the Saeb only
+identifies public and private schools); in ensino médio more of the weaker public students have
+already left school; and the school's mean INSE also removes the peer group, which is part of what
+a private school offers. See `results/09_publica_privada.csv`, `results/09_medias.csv` and
+`results/09_por_nivel_inse.csv`.
+
 ## Scripts (`code/`)
 
 | Script | What it does | Output |
@@ -98,6 +121,7 @@ Ceará's top networks still shows (`results/07_enem_quintis.csv`, `results/07_en
 | `06_extremos.py` | Profile of the networks with an Ideb below 4 or above 8 (region, population, IDHM, Inse, spending, approval) and two figures of the essay | `results/06_*.csv`, `results/06_fig_*.pdf` |
 | `07_enem.py` | Enem 2023 by state and by municipality of the school, compared with the 2015 Ideb of the municipal network and its 2019 9th-grade Saeb; figure of the essay | `results/07_*.csv`, `results/07_fig_enem.pdf` |
 | `08_atualizacao_2025.py` | 2025 checks: lagged INSE, spending and Ideb change by INSE fifth, placebo regressions, samples without implausible scores, median regression, VAAR of 2025, networks with very high Saeb scores | `results/08_*.csv` |
+| `09_publica_privada.py` | Public versus private schools in the Saeb 2023, with and without the INSE of the student and of the school | `results/09_*.csv` |
 
 Run them in order from `code/` with Python 3 (pandas, numpy, scipy, openpyxl and matplotlib; script 08
 also needs `pdftotext`, from poppler):
@@ -112,6 +136,7 @@ python 05_figura_ideb.py
 python 06_extremos.py
 python 07_enem.py
 python 08_atualizacao_2025.py
+python 09_publica_privada.py
 ```
 
 Script 01 makes one API call per municipality and year (about 22,000 calls for four years; a few
@@ -178,6 +203,7 @@ Municipalities may correct their DCA after the deadline, so a new download may d
 | `pop_censo2022.json` | IBGE, SIDRA, table 4709 (resident population, Censo 2022), `https://apisidra.ibge.gov.br/` |
 | `idhm_ipeadata.json` | Ipea, Ipeadata, series ADH_IDHM (IDHM 2010, Atlas do Desenvolvimento Humano), `https://www.ipeadata.gov.br/api/` |
 | `microdados_enem_2023.zip` | Inep, Microdados do Enem 2023, `https://download.inep.gov.br/microdados/` |
+| `microdados_saeb_2023.zip` | Inep, Microdados do Saeb 2023 (student files of the 5th and 9th grades and of ensino médio), `https://download.inep.gov.br/microdados/` |
 | `divulgacao_brasil_ideb_2025.zip` | Inep, Ideb, resultados 2005-2025 for Brazil by network (national mean of private schools), `https://download.inep.gov.br/ideb/resultados/` |
 | `data/fnde/portaria_interministerial_5_2026.pdf` | MEC/MF, Portaria Interministerial nº 5, de 29 de abril de 2026 (Fundeb annual adjustment of 2025, VAAF, VAAT and VAAR by government), FNDE site |
 

@@ -25,6 +25,7 @@ ARQUIVOS = {
     'inep/INSE_2019_MUNICIPIOS.xlsx': INEP + 'informacoes_estatisticas/indicadores_educacionais/2019/nivel_socioeconomico/INSE_2019_MUNICIPIOS.xlsx',
     'inep/INSE_2023_municipios.xlsx': INEP + 'informacoes_estatisticas/indicadores_educacionais/2023/nivel_socioeconomico/INSE_2023_municipios.xlsx',
     'inep/microdados_enem_2023.zip': INEP + 'microdados/microdados_enem_2023.zip',
+    'inep/microdados_saeb_2023.zip': INEP + 'microdados/microdados_saeb_2023.zip',
     'ipca_1737.json': 'https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/201612-202512',
     'pop_censo2022.json': 'https://apisidra.ibge.gov.br/values/t/4709/n6/all/v/93/p/2022',
     'fnde/portaria_interministerial_5_2026.pdf': 'https://www.gov.br/fnde/pt-br/acesso-a-informacao/acoes-e-programas/financiamento/'
