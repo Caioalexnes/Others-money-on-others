@@ -117,7 +117,7 @@ a private school offers. See `results/09_publica_privada.csv`, `results/09_media
 | `02_matriculas.py` | Enrollments of each municipal network in the Censo Escolar: basic-education enrollments of municipal schools in activity, plus early-childhood enrollments of private schools under agreement with the municipality | `results/02_matriculas.csv` |
 | `03_gasto_ideb.py` | Spending per student, Ideb and INSE by municipality; regressions with and without the INSE; Ideb by band of spending | `results/03_base_municipios.csv`, `results/03_regressoes.csv`, `results/03_faixas.csv` |
 | `04_custo_escola.py` | Arithmetic of the table "O que sobra para ensinar" (municipal spending versus private tuition after taxes) | `results/04_custo_escola.csv` |
-| `05_figura_ideb.py` | pgfplots code of the essay's figure on the Ideb by band of spending | `results/05_figura_ideb.tex` |
+| `05_figura_ideb.py` | pgfplots code of the essay's figure on the Ideb by band of spending, 5th and 9th grades, 2023 | `results/05_figura_ideb.tex` |
 | `06_extremos.py` | Profile of the networks with an Ideb below 4 or above 8 (region, population, IDHM, Inse, spending, approval) and two figures of the essay | `results/06_*.csv`, `results/06_fig_*.pdf` |
 | `07_enem.py` | Enem 2023 by state and by municipality of the school, compared with the 2015 Ideb of the municipal network and its 2019 9th-grade Saeb; figure of the essay | `results/07_*.csv`, `results/07_fig_enem.pdf` |
 | `08_atualizacao_2025.py` | 2025 checks: lagged INSE, spending and Ideb change by INSE fifth, placebo regressions, samples without implausible scores, median regression, VAAR of 2025, networks with very high Saeb scores | `results/08_*.csv` |
