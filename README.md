@@ -22,6 +22,9 @@ The repository does three things:
 5. It compares public and private schools in the Saeb 2023, net of the students' socioeconomic level.
 6. It compares literacy at the end of the 2nd grade in Ceará as measured by the state's own test and by
    the federal Saeb.
+7. It compares, state by state, what municipal networks spend per student with private tuition net of
+   taxes, and the Saeb scores of private and public students of the same socioeconomic level; and it
+   tests whether Ceará's advantage is regional or confined to its public network.
 
 All data are public.
 
@@ -126,6 +129,25 @@ In 2023 the median Ceará municipal network spent R$ 10,093 per student, against
 R$ 13,737 in Paraná, R$ 14,973 in Santa Catarina and R$ 16,028 in São Paulo (2023 reais). See
 `results/10_alfabetizacao_saeb2023.csv` and `results/10_ceara.csv`.
 
+### Cost and performance by state, and whether Ceará's advantage is regional
+
+Within each state, public and private schools pay the same rents and compete for the same teachers, so
+comparing them inside the state removes differences in the cost of living. In 2025, in every one of the
+26 states with municipal networks, the network spent more per student than the mean private tuition net
+of taxes on revenue and profit (7.5% to 19.5%, as in script 04; tuition weighted by the share of
+early-childhood enrollments): from 1.8 to 2.2 times on the mean of the states, from 1.2 to 1.5 in Rio
+Grande do Sul, from 2.1 to 2.5 in Ceará and from 2.8 to 3.4 in Paraíba. Comparing students of the same
+INSE in the Saeb 2023, private students are ahead in mathematics in every state except Ceará in the 5th
+grade: on the mean of the states, 23 points in the 5th grade and 32 in the 9th (Ceará: 1 and 12).
+Relative to local earnings (PNAD Contínua, IBGE table 5436), Ceará's networks spent 5.2 months of the
+mean monthly earnings per student in 2023, against 4.6 in São Paulo and 4.4 in Paraná and Santa
+Catarina. Ceará's advantage is confined to the public network: at the same student INSE, Ceará's public
+students score 24 (5th grade) and 22 (9th grade) points above public students in the rest of Brazil, and
+its private students 5 points below private students elsewhere (0 and 4 with the school's INSE); in the
+2nd-grade literacy sample, 72% of Ceará's public students and 62% of its private students are literate,
+against 37.5% and 69.7% in the rest of the Northeast. See `results/11_estados.csv`, `results/11_ceara.csv`,
+`results/11_tabela_estados.tex` and `results/11_fig_custo_desempenho.pdf`.
+
 ## Scripts (`code/`)
 
 | Script | What it does | Output |
@@ -141,6 +163,7 @@ R$ 13,737 in Paraná, R$ 14,973 in Santa Catarina and R$ 16,028 in São Paulo (2
 | `08_atualizacao_2025.py` | 2025 checks: lagged INSE, spending and Ideb change by INSE fifth, placebo regressions, samples without implausible scores, median regression, VAAR of 2025, networks with very high Saeb scores | `results/08_*.csv` |
 | `09_publica_privada.py` | Public versus private schools in the Saeb 2023, with and without the INSE of the student and of the school | `results/09_*.csv` |
 | `10_alfabetizacao.py` | Literacy at the end of the 2nd grade in the federal Saeb 2023 by state, Ceará's networks with very high Ideb, and median spending by state | `results/10_*.csv` |
+| `11_custo_desempenho_uf.py` | Cost (municipal spending versus private tuition net of taxes) and Saeb performance by state, spending in months of local earnings, and the test of a regional effect in Ceará; table and figure of the essay | `results/11_*` |
 
 Run them in order from `code/` with Python 3 (pandas, numpy, scipy, openpyxl and matplotlib; script 08
 also needs `pdftotext`, from poppler):
@@ -157,6 +180,7 @@ python 07_enem.py
 python 08_atualizacao_2025.py
 python 09_publica_privada.py
 python 10_alfabetizacao.py
+python 11_custo_desempenho_uf.py
 ```
 
 Script 01 makes one API call per municipality and year (about 22,000 calls for four years; a few
@@ -221,6 +245,9 @@ Municipalities may correct their DCA after the deadline, so a new download may d
 | `INSE_2019_MUNICIPIOS.xlsx`, `INSE_2023_municipios.xlsx` | Inep, Indicador de Nível Socioeconômico, `https://download.inep.gov.br/informacoes_estatisticas/indicadores_educacionais/` |
 | `ipca_1737.json` | IBGE, SIDRA, table 1737 (IPCA, número-índice), `https://apisidra.ibge.gov.br/` |
 | `pop_censo2022.json` | IBGE, SIDRA, table 4709 (resident population, Censo 2022), `https://apisidra.ibge.gov.br/` |
+| `pnad_5436.json` | IBGE, SIDRA, table 5436 (PNAD Contínua, mean monthly earnings by state), `https://apisidra.ibge.gov.br/` |
+| `ipca_1737_2026.json` | IBGE, SIDRA, table 1737 (IPCA), January 2023 to October 2026, `https://apisidra.ibge.gov.br/` |
+| Private tuition by state | Melhor Escola, mean monthly tuition by state, 2025, written in `code/11_custo_desempenho_uf.py` (`https://www.melhorescola.com.br/artigos/descubra-o-valor-medio-da-mensalidade-de-escolas-particulares-no-brasil`) |
 | `idhm_ipeadata.json` | Ipea, Ipeadata, series ADH_IDHM (IDHM 2010, Atlas do Desenvolvimento Humano), `https://www.ipeadata.gov.br/api/` |
 | `microdados_enem_2023.zip` | Inep, Microdados do Enem 2023, `https://download.inep.gov.br/microdados/` |
 | `microdados_saeb_2023.zip` | Inep, Microdados do Saeb 2023 (student files of the 2nd, 5th and 9th grades and of ensino médio), `https://download.inep.gov.br/microdados/` |

@@ -30,6 +30,10 @@ ARQUIVOS = {
     'pop_censo2022.json': 'https://apisidra.ibge.gov.br/values/t/4709/n6/all/v/93/p/2022',
     'fnde/portaria_interministerial_5_2026.pdf': 'https://www.gov.br/fnde/pt-br/acesso-a-informacao/acoes-e-programas/financiamento/'
         'fundeb/legislacao/2026/portaria-interministerial-mec-mf-no-5-de-29-de-abril-de-2026/@@download/file',
+    # PNAD Contínua, mean monthly earnings by state, 2023 and 2025 quarters (real values at the prices of the table's last
+    # quarter; downloaded on 19 Nov. 2026, when it was the 3rd quarter of 2026), and the IPCA up to October 2026
+    'pnad_5436.json': 'https://apisidra.ibge.gov.br/values/t/5436/n3/all/n1/all/v/5933/p/202301,202302,202303,202304,202501,202502,202503,202504/c2/6794',
+    'ipca_1737_2026.json': 'https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/202301-202610',
     'idhm_ipeadata.json': "https://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='ADH_IDHM')",
 }
 
