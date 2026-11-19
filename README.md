@@ -17,6 +17,8 @@ The repository does three things:
 3. It describes the municipal networks with an Ideb of the early grades below 4 or above 8 in 2023
    and uses the Enem as an outside check on the Ideb of Ceará, where part of the municipal share of
    the ICMS is distributed by an education index.
+4. It extends the series to 2025 and tests whether the larger 2025 coefficient measures an effect of
+   money or money going to networks that were already doing well.
 
 All data are public.
 
@@ -31,14 +33,37 @@ per R$ 1,000 per student per year, with heteroskedasticity-robust standard error
 | 2017 | 5,165 | 0.166 (0.005) | 0.025 (0.004) | 0.16 |
 | 2019 | 5,110 | 0.131 (0.005) | 0.012 (0.004) | 0.12 |
 | 2023 | 5,229 | 0.053 (0.013) | 0.006 (0.003) | 0.06 |
+| 2025 | 5,261 | 0.052 (0.004) | 0.020 (0.003) | |
 
 For the late grades (9th grade, *anos finais*) the coefficients without controls are 0.137, 0.087 and
 0.032, against 0.13, 0.08 and 0.05 in Todos Pela Educação; with the INSE, the 2023 coefficient is
-0.001 (0.002). The enrollment-weighted mean spending per student in 2023 is R$ 12,589, against
-R$ 12,460 in Todos Pela Educação. Within each band of R$ 2,000 of spending per student, the Ideb of the
+0.001 (0.002), and the 2025 coefficients are 0.045 and 0.022 (0.004). The enrollment-weighted mean
+spending per student in 2023 is R$ 12,589, against R$ 12,460 in Todos Pela Educação; in 2025 it is
+R$ 14,405 (2023 reais), 66% above 2017. Within each band of R$ 2,000 of spending per student, the Ideb of the
 early grades varies by about 2 points between the 10th and the 90th percentile, while the mean of the
 highest-spending band (above R$ 20,000, mean 6.31) is about 1 point above that of the lowest
 (below R$ 8,000, mean 5.28). See `results/03_regressoes.csv` and `results/03_faixas.csv`.
+
+### 2025: the coefficient rises, but money also follows results
+
+The INSE of the 2025 Saeb had not been released in November 2026, so the 2023 edition is used for
+2025. The lag does not explain the rise: using the 2019 INSE in 2023 gives 0.009 instead of 0.006.
+The 2025 coefficient comes from the Saeb scores, not from approval rates, and it does not depend on
+the networks with implausible scores: without Ceará, Alagoas and the 57 networks with a 5th-grade
+mathematics mean above 300 in any year, it is 0.018; by median regression, 0.016.
+
+It does not measure an effect of money, though. Holding the 2023 spending and the INSE fixed, the
+2025 spending is associated with the Ideb of 2023, measured before the money arrived, almost as much
+as with the Ideb of 2025 (0.039 and 0.044 per R$ 1,000); from 2019 to 2023 the pattern is the same
+(0.028 for the 2019 Ideb, 0.015 for the 2023 Ideb). Part of this is by design: since Constitutional
+Amendment 108 (2020) part of the municipal ICMS is distributed by learning indicators, and the Fundeb
+has a part paid by results (complementação VAAR), R$ 5.1 billion in 2025 for 2,833 municipalities.
+The VAAR alone is too small to explain it (about R$ 370 per student, 2.5% of spending; spending net of
+VAAR gives 0.019). Between 2023 and 2025, spending per student rose R$ 3.2 thousand in the fifth of
+networks with the poorest students and R$ 1.3 thousand in the richest fifth, and the Ideb rose 0.57
+and 0.22 points. In 2025, 31 municipal networks had a 5th-grade mathematics mean above 320 (none in
+2019), 23 of them in Ceará; the national mean of private schools was 254. See
+`results/08_resultados.csv`, `results/08_notas_altas.csv` and `results/08_vaar_2025.csv`.
 
 ### Networks below 4 and above 8
 
@@ -72,23 +97,26 @@ Ceará's top networks still shows (`results/07_enem_quintis.csv`, `results/07_en
 | `05_figura_ideb.py` | pgfplots code of the essay's figure on the Ideb by band of spending | `results/05_figura_ideb.tex` |
 | `06_extremos.py` | Profile of the networks with an Ideb below 4 or above 8 (region, population, IDHM, Inse, spending, approval) and two figures of the essay | `results/06_*.csv`, `results/06_fig_*.pdf` |
 | `07_enem.py` | Enem 2023 by state and by municipality of the school, compared with the 2015 Ideb of the municipal network and its 2019 9th-grade Saeb; figure of the essay | `results/07_*.csv`, `results/07_fig_enem.pdf` |
+| `08_atualizacao_2025.py` | 2025 checks: lagged INSE, spending and Ideb change by INSE fifth, placebo regressions, samples without implausible scores, median regression, VAAR of 2025, networks with very high Saeb scores | `results/08_*.csv` |
 
-Run them in order from `code/` with Python 3 (pandas, numpy, openpyxl and matplotlib):
+Run them in order from `code/` with Python 3 (pandas, numpy, scipy, openpyxl and matplotlib; script 08
+also needs `pdftotext`, from poppler):
 
 ```
 python 00_download.py
-python 01_siconfi_dca.py 2017 2019 2023
-python 02_matriculas.py 2017 2019 2023
+python 01_siconfi_dca.py 2017 2019 2023 2025
+python 02_matriculas.py 2017 2019 2023 2025
 python 03_gasto_ideb.py
 python 04_custo_escola.py
 python 05_figura_ideb.py
 python 06_extremos.py
 python 07_enem.py
+python 08_atualizacao_2025.py
 ```
 
-Script 01 makes one API call per municipality and year (about 17,000 calls for three years; about seven
+Script 01 makes one API call per municipality and year (about 22,000 calls for four years; a few
 minutes per year with the 12 parallel requests it uses) and can be interrupted and resumed. Its extracts for
-2017, 2019 and 2023 are included in `data/siconfi/`, so scripts 02 to 05 can be run without it.
+2017, 2019, 2023 and 2025 are included in `data/siconfi/`, so scripts 02 to 08 can be run without it.
 Municipalities may correct their DCA after the deadline, so a new download may differ slightly.
 
 ## Definitions
@@ -100,14 +128,16 @@ Municipalities may correct their DCA after the deadline, so a new download may d
   whether it excluded anything else (such as pensions of retired staff); nothing else is excluded here.
 - **Enrollments**: `QT_MAT_BAS` of municipal schools (`TP_DEPENDENCIA` = 3) in activity, plus
   `QT_MAT_INF` of private schools under agreement (*convênio* or *parceria*) with the municipal
-  government, alone or with the state.
+  government, alone or with the state. From 2025 the Censo Escolar puts the enrollment counts in a
+  separate table (`Tabela_Matricula`), joined to the school table by school code.
 - **Prices**: 2023 reais, deflated by the annual mean of the IPCA (IBGE, table 1737). Todos Pela
   Educação states that it uses the IPCA at 2023 values but not how the index is averaged.
 - **Ideb**: observed Ideb of the municipal network (`REDE` = Municipal) in the Inep file released
   in 2026 with the series from 2005 to 2025.
 - **INSE**: mean Indicador de Nível Socioeconômico of the municipal network's students (Saeb), all
   locations (`TP_TIPO_REDE` = 3, `TP_LOCALIZACAO` = 0). There is no municipal INSE for 2017; the
-  2019 edition is used for 2017 and 2019, and the 2023 edition for 2023. The 2023 file repeats each
+  2019 edition is used for 2017 and 2019, and the 2023 edition for 2023 and 2025 (the 2025 edition
+  had not been released in November 2026). The 2023 file repeats each
   stratum on several rows; one row per municipality is kept.
 - **Samples**: all municipalities with spending, enrollments and an Ideb. A second sample drops the
   1% tails of spending per student, where very small enrollment counts or accounting errors produce
@@ -119,6 +149,11 @@ Municipalities may correct their DCA after the deadline, so a new download may d
   contribution on payroll is left on both sides, because it is also part of the public spending. The
   municipal spending of 2023 is put in 2025 reais (IPCA, annual means), the year of the tuition survey.
 - **Approving every student**: flow indicator of the Ideb (`VL_INDICADOR_REND_2023`) of 1.00.
+- **VAAR**: complementação da União-VAAR of 2025 made available to each municipality during the year
+  (Anexo III of Portaria Interministerial MEC/MF nº 5/2026, column B), divided by the enrollments of
+  script 02 and put in 2023 reais.
+- **Implausible scores**: municipal networks with a 5th-grade Saeb mathematics mean above 300 in
+  2019, 2023 or 2025; the national mean of private schools was 254 in 2025.
 - **IDHM**: 2010, from the Atlas do Desenvolvimento Humano (Ipeadata, series `ADH_IDHM`).
   **Population**: Censo 2022 (IBGE, table 4709).
 - **Enem**: students finishing public high school in 2023 (`TP_ST_CONCLUSAO` = 2, `TP_ESCOLA` = 2)
@@ -143,9 +178,11 @@ Municipalities may correct their DCA after the deadline, so a new download may d
 | `pop_censo2022.json` | IBGE, SIDRA, table 4709 (resident population, Censo 2022), `https://apisidra.ibge.gov.br/` |
 | `idhm_ipeadata.json` | Ipea, Ipeadata, series ADH_IDHM (IDHM 2010, Atlas do Desenvolvimento Humano), `https://www.ipeadata.gov.br/api/` |
 | `microdados_enem_2023.zip` | Inep, Microdados do Enem 2023, `https://download.inep.gov.br/microdados/` |
+| `divulgacao_brasil_ideb_2025.zip` | Inep, Ideb, resultados 2005-2025 for Brazil by network (national mean of private schools), `https://download.inep.gov.br/ideb/resultados/` |
+| `data/fnde/portaria_interministerial_5_2026.pdf` | MEC/MF, Portaria Interministerial nº 5, de 29 de abril de 2026 (Fundeb annual adjustment of 2025, VAAF, VAAT and VAAR by government), FNDE site |
 
-SHA-256 checksums of the files used are in `DATA_SHA256SUMS.txt`. The Inep files are not included
-because of their size.
+SHA-256 checksums of the files used are in `DATA_SHA256SUMS.txt`. The Inep files and the Portaria are
+not included because of their size; the VAAR extracted from the Portaria is in `results/08_vaar_2025.csv`.
 
 **Inep's certificate.** `download.inep.gov.br` does not send the intermediate certificate of its TLS
 chain, so command-line downloads fail certificate verification (browsers fetch the missing
@@ -157,7 +194,9 @@ files with a browser into `data/inep/`.
 
 ## Limits
 
-The regressions describe associations across municipalities; they are not causal estimates. The INSE
+The regressions describe associations across municipalities; they are not causal estimates. Since
+2023 part of the money follows the indicators (ICMS by education indicators, VAAR), so the
+association also runs from results to spending; the placebo regressions of script 08 show it. The INSE
 measures the students who took the Saeb, not the whole network. Very high Ideb values in networks
 with low socioeconomic level are concentrated in Ceará, which distributes 18% of the municipal share
 of the ICMS by an education index (state law 14,023/2007); the essay discusses this policy and the

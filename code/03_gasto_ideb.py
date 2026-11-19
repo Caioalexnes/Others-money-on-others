@@ -7,7 +7,7 @@ subfunction 364 (Ensino Superior), from the municipal DCA (Siconfi, Anexo I-E); 
 enrollments of script 02; in 2023 reais, deflated by the annual mean of the IPCA (IBGE, table 1737).
 Outcomes: Ideb of the municipal network, early grades (anos iniciais, 5th grade) and late grades
 (anos finais, 9th grade), Inep. Socioeconomic level: Inep's INSE of the municipal network's students
-(Saeb), 2019 and 2023.
+(Saeb), 2019 and 2023 (the 2023 edition is also used for 2025).
 Inputs: data/siconfi/dca_<year>.csv (script 01), results/02_matriculas.csv, data/ipca_1737.json,
         data/inep/divulgacao_anos_{iniciais,finais}_municipios_2025/*.xlsx, data/inep/INSE_*_municipios.xlsx
 Outputs: results/03_base_municipios.csv, results/03_regressoes.csv, results/03_faixas.csv
@@ -17,8 +17,10 @@ import numpy as np
 import pandas as pd
 from config import DADOS, RES
 
-ANOS = (2017, 2019, 2023)
-INSE = {2017: 2019, 2019: 2019, 2023: 2023}   # INSE edition used for each year (no municipal INSE for 2017)
+ANOS = (2017, 2019, 2023, 2025)
+# INSE edition used for each year: there is no municipal INSE for 2017, and the INSE of the 2025 Saeb
+# had not been released in November 2026, so the nearest edition is used
+INSE = {2017: 2019, 2019: 2019, 2023: 2023, 2025: 2023}
 
 
 def mqo(y, X):

@@ -1,0 +1,55 @@
+chave;valor;descricao
+inse2019_2023;0.009309;Ideb 5th grade 2023 on spending and the 2019 INSE (lagged proxy)
+inse2019_2025;0.022111;Ideb 5th grade 2025 on spending and the 2019 INSE (lagged proxy)
+componente_score_2023;0.002292;5th grade 2023: Ideb score component (VL_NOTA_MEDIA) on spending and INSE
+componente_approval_2023;0.000709;5th grade 2023: Ideb approval component (VL_INDICADOR_REND) on spending and INSE
+componente_score_2025;0.016165;5th grade 2025: Ideb score component (VL_NOTA_MEDIA) on spending and INSE
+componente_approval_2025;0.000706;5th grade 2025: Ideb approval component (VL_INDICADOR_REND) on spending and INSE
+var_gasto_2023_2025_q1;3.152774;change of spending per student 2023-2025 (R$ thousand), fifth 1 of the 2023 INSE (1 = poorest)
+var_ideb_2023_2025_q1;0.574878;change of the 5th-grade Ideb 2023-2025, fifth 1 of the 2023 INSE
+var_gasto_2023_2025_q2;2.605166;change of spending per student 2023-2025 (R$ thousand), fifth 2 of the 2023 INSE (1 = poorest)
+var_ideb_2023_2025_q2;0.503021;change of the 5th-grade Ideb 2023-2025, fifth 2 of the 2023 INSE
+var_gasto_2023_2025_q3;1.714945;change of spending per student 2023-2025 (R$ thousand), fifth 3 of the 2023 INSE (1 = poorest)
+var_ideb_2023_2025_q3;0.370594;change of the 5th-grade Ideb 2023-2025, fifth 3 of the 2023 INSE
+var_gasto_2023_2025_q4;1.455748;change of spending per student 2023-2025 (R$ thousand), fifth 4 of the 2023 INSE (1 = poorest)
+var_ideb_2023_2025_q4;0.314732;change of the 5th-grade Ideb 2023-2025, fifth 4 of the 2023 INSE
+var_gasto_2023_2025_q5;1.259202;change of spending per student 2023-2025 (R$ thousand), fifth 5 of the 2023 INSE (1 = poorest)
+var_ideb_2023_2025_q5;0.218014;change of the 5th-grade Ideb 2023-2025, fifth 5 of the 2023 INSE
+placebo_ideb_ai_2017_2019_antes;-0.026961;5th-grade Ideb 2017 on spending 2019, holding spending 2017 and the INSE fixed (n=4881)
+placebo_ideb_ai_2017_2019_depois;-0.028078;5th-grade Ideb 2019 on spending 2019, holding spending 2017 and the INSE fixed
+placebo_ideb_ai_2019_2023_antes;0.027452;5th-grade Ideb 2019 on spending 2023, holding spending 2019 and the INSE fixed (n=4898)
+placebo_ideb_ai_2019_2023_depois;0.014674;5th-grade Ideb 2023 on spending 2023, holding spending 2019 and the INSE fixed
+placebo_ideb_ai_2023_2025_antes;0.039253;5th-grade Ideb 2023 on spending 2025, holding spending 2023 and the INSE fixed (n=5028)
+placebo_ideb_ai_2023_2025_depois;0.044213;5th-grade Ideb 2025 on spending 2025, holding spending 2023 and the INSE fixed
+placebo_ideb_af_2017_2019_antes;-0.048763;9th-grade Ideb 2017 on spending 2019, holding spending 2017 and the INSE fixed (n=2899)
+placebo_ideb_af_2017_2019_depois;-0.035343;9th-grade Ideb 2019 on spending 2019, holding spending 2017 and the INSE fixed
+placebo_ideb_af_2019_2023_antes;0.015560;9th-grade Ideb 2019 on spending 2023, holding spending 2019 and the INSE fixed (n=2843)
+placebo_ideb_af_2019_2023_depois;0.008014;9th-grade Ideb 2023 on spending 2023, holding spending 2019 and the INSE fixed
+placebo_ideb_af_2023_2025_antes;0.043724;9th-grade Ideb 2023 on spending 2025, holding spending 2023 and the INSE fixed (n=3003)
+placebo_ideb_af_2023_2025_depois;0.058679;9th-grade Ideb 2025 on spending 2025, holding spending 2023 and the INSE fixed
+redes_mat_acima_300_algum_ano;57.000000;municipal networks with a 5th-grade math mean above 300 in 2019, 2023 or 2025
+base_2023;0.006266;Ideb 5th grade 2023 on spending and INSE, all municipalities (n=5229)
+sem_mat300_2023;0.006972;same, without networks with math above 300 in any year (n=5172)
+sem_mat300_ce_al_2023;0.008876;same, also without Ceará and Alagoas (n=4930)
+mediana_2023;0.008575;median regression, all municipalities
+base_2025;0.020284;Ideb 5th grade 2025 on spending and INSE, all municipalities (n=5236)
+sem_mat300_2025;0.018290;same, without networks with math above 300 in any year (n=5179)
+sem_mat300_ce_al_2025;0.018224;same, also without Ceará and Alagoas (n=4942)
+mediana_2025;0.015974;median regression, all municipalities
+vaar_2025_total_bi;5.092264;complementação VAAR 2025 due to states and municipalities (R$ billion, nominal)
+vaar_2025_municipios;2833.000000;municipalities receiving VAAR in 2025
+vaar_por_aluno_media;367.731733;VAAR per student among receiving networks in the base, mean (2023 reais)
+vaar_parcela_gasto;0.024659;VAAR as a share of spending per student, mean among receiving networks
+sem_vaar_2025;0.018599;Ideb 5th grade 2025 on spending net of VAAR and INSE
+redes_mat_acima_300_2019;8.000000;municipal networks with a 5th-grade math mean above 300 in 2019
+redes_mat_acima_320_2019;0.000000;municipal networks with a 5th-grade math mean above 320 in 2019
+redes_mat_acima_300_2023;26.000000;municipal networks with a 5th-grade math mean above 300 in 2023
+redes_mat_acima_320_2023;15.000000;municipal networks with a 5th-grade math mean above 320 in 2023
+redes_mat_acima_300_2025;49.000000;municipal networks with a 5th-grade math mean above 300 in 2025
+redes_mat_acima_320_2025;31.000000;municipal networks with a 5th-grade math mean above 320 in 2025
+redes_ce_com_nota_2025;183.000000;Ceará municipal networks with a math score in 2025
+privadas_mat_5ano_2025;253.730000;national mean of private schools, 5th-grade math, Saeb 2025
+ideb_redes_municipais_2017;5.600000;Ideb 5th grade of all municipal networks, Brazil, 2017
+ideb_redes_municipais_2025;6.100000;Ideb 5th grade of all municipal networks, Brazil, 2025
+gasto_ponderado_2017;8700.941032;enrollment-weighted spending per student, 2017 (2023 reais)
+gasto_ponderado_2025;14405.283836;enrollment-weighted spending per student, 2025 (2023 reais)
