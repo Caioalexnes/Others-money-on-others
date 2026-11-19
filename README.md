@@ -25,6 +25,7 @@ The repository does three things:
 7. It compares, state by state, what municipal networks spend per student with private tuition net of
    taxes, and the Saeb scores of private and public students of the same socioeconomic level; and it
    tests whether Ceará's advantage is regional or confined to its public network.
+8. It does the same comparison for ensino médio, run by the state networks.
 
 All data are public.
 
@@ -148,6 +149,20 @@ its private students 5 points below private students elsewhere (0 and 4 with the
 against 37.5% and 69.7% in the rest of the Northeast. See `results/11_estados.csv`, `results/11_ceara.csv`,
 `results/11_tabela_estados.tex` and `results/11_fig_custo_desempenho.pdf`.
 
+### Ensino médio: state networks
+
+The state accounts do not isolate ensino médio reliably: by the subfunction Ensino Médio (362), spending per
+ensino médio student would range from zero (Alagoas) and R$ 0.7 thousand (Paraná) to R$ 25 thousand (Mato
+Grosso do Sul), because several states book almost everything under 368 (Educação Básica). Script 12 therefore
+does not allocate spending by stage: it divides the spending of each state network (function 12 minus
+subfunctions 363 and 364) by its basic-education enrollments and compares it with private tuition weighted by
+the network's own mix of ensino fundamental and médio. On the mean of the states the network spends 1.6 to 1.9
+times the tuition net of taxes; the range is entirely above 1 in 23 states, around 1 in Rio Grande do Sul, Santa
+Catarina and Rio de Janeiro, and below 1 in Minas Gerais. In every state private students are ahead at the end
+of ensino médio (Saeb 2023, same student INSE), by 20 to 58 points, 36 on the mean; Minas Gerais, where the
+public network is cheaper, has the largest gap. In Ceará, 97% of the state network's students are in ensino
+médio. See `results/12_medio.csv`, `results/12_tabela_medio.tex` and `results/12_fig_medio.pdf`.
+
 ## Scripts (`code/`)
 
 | Script | What it does | Output |
@@ -164,6 +179,7 @@ against 37.5% and 69.7% in the rest of the Northeast. See `results/11_estados.cs
 | `09_publica_privada.py` | Public versus private schools in the Saeb 2023, with and without the INSE of the student and of the school | `results/09_*.csv` |
 | `10_alfabetizacao.py` | Literacy at the end of the 2nd grade in the federal Saeb 2023 by state, Ceará's networks with very high Ideb, and median spending by state | `results/10_*.csv` |
 | `11_custo_desempenho_uf.py` | Cost (municipal spending versus private tuition net of taxes) and Saeb performance by state, spending in months of local earnings, and the test of a regional effect in Ceará; table and figure of the essay | `results/11_*` |
+| `12_ensino_medio.py` | Ensino médio: spending per student of the state networks versus private tuition weighted by the network's stage mix, and the Saeb at the end of ensino médio; table and figure of the essay | `results/12_*` |
 
 Run them in order from `code/` with Python 3 (pandas, numpy, scipy, openpyxl and matplotlib; script 08
 also needs `pdftotext`, from poppler):
@@ -181,6 +197,7 @@ python 08_atualizacao_2025.py
 python 09_publica_privada.py
 python 10_alfabetizacao.py
 python 11_custo_desempenho_uf.py
+python 12_ensino_medio.py
 ```
 
 Script 01 makes one API call per municipality and year (about 22,000 calls for four years; a few
@@ -239,6 +256,7 @@ Municipalities may correct their DCA after the deadline, so a new download may d
 
 | File | Source |
 |---|---|
+| `data/siconfi/dca_estados_2025.csv` | Tesouro Nacional, Siconfi, DCA-Anexo I-E of the 26 states and the Distrito Federal, function 12, downloaded by script 12 in November 2026 |
 | `data/siconfi/dca_<year>.csv` | Tesouro Nacional, Siconfi, API de dados abertos, `https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca` (DCA-Anexo I-E), downloaded in November 2026 |
 | `microdados_censo_escolar_<year>.zip` | Inep, Microdados do Censo Escolar da Educação Básica, `https://download.inep.gov.br/dados_abertos/` |
 | `divulgacao_anos_{iniciais,finais}_municipios_2025.zip` | Inep, Ideb, resultados 2005-2025, `https://download.inep.gov.br/ideb/resultados/` |

@@ -185,7 +185,7 @@ def figura(t):
         ax.text(3.55, 50.5, 'particular mais barata\ne com nota maior', ha='right', va='top', fontsize=6, color='#8a8578')
         ax.text(0.97, 51, 'mesmo custo', fontsize=5.6, color='#8a8578', rotation=90, va='top', ha='right')
         ax.text(3.55, 0.8, 'mesma nota', fontsize=5.6, color='#8a8578', ha='right', va='bottom')
-    axes[0].set_ylabel('Particular menos pública no Saeb\n(pontos, alunos de mesmo nível socioeconômico)', fontsize=7, color='#52514E')
+    axes[0].set_ylabel('Pontos que a particular fica à frente no Saeb\n(alunos de mesmo nível socioeconômico)', fontsize=7, color='#52514E')
     fig.tight_layout(w_pad=1.2)
     fig.savefig(os.path.join(RES, '11_fig_custo_desempenho.pdf'), bbox_inches='tight', metadata={'CreationDate': None})
 
