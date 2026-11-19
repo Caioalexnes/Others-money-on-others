@@ -20,6 +20,8 @@ The repository does three things:
 4. It extends the series to 2025 and tests whether the larger 2025 coefficient measures an effect of
    money or money going to networks that were already doing well.
 5. It compares public and private schools in the Saeb 2023, net of the students' socioeconomic level.
+6. It compares literacy at the end of the 2nd grade in Ceará as measured by the state's own test and by
+   the federal Saeb.
 
 All data are public.
 
@@ -108,6 +110,22 @@ already left school; and the school's mean INSE also removes the peer group, whi
 a private school offers. See `results/09_publica_privada.csv`, `results/09_medias.csv` and
 `results/09_por_nivel_inse.csv`.
 
+### Literacy in Ceará: the state test and the federal Saeb
+
+The Indicador Criança Alfabetizada (MEC) is built from each state's own 2nd-grade test; in Ceará, the
+SPAECE-Alfa, which also carries 40% of the education index that distributes the municipal ICMS
+(Decreto estadual 35.087/2022). By that indicator, 84.5% of Ceará's public-school children were
+literate at the end of the 2nd grade in 2023, against 56% in Brazil (press reports of the MEC
+release). In the federal Saeb 2023, which tested a sample of 2nd-grade students, the share at or above
+the national standard (743 points) is 72.1% in Ceará (standard error 5.2; 646 students in 27 public
+schools), still the highest of all states, and 49.3% in Brazil; both match Inep's release. The gap
+between the two measures is 12 points in Ceará and 7 in Brazil. Inep advises against comparing
+states with this sample. Of the nine Ceará municipalities reported with 100% of children literate in
+2024, five are among the 21 Ceará municipal networks with a 5th-grade Ideb of 9.5 or more in 2025.
+In 2023 the median Ceará municipal network spent R$ 10,093 per student, against R$ 12,879 in Brazil,
+R$ 13,737 in Paraná, R$ 14,973 in Santa Catarina and R$ 16,028 in São Paulo (2023 reais). See
+`results/10_alfabetizacao_saeb2023.csv` and `results/10_ceara.csv`.
+
 ## Scripts (`code/`)
 
 | Script | What it does | Output |
@@ -122,6 +140,7 @@ a private school offers. See `results/09_publica_privada.csv`, `results/09_media
 | `07_enem.py` | Enem 2023 by state and by municipality of the school, compared with the 2015 Ideb of the municipal network and its 2019 9th-grade Saeb; figure of the essay | `results/07_*.csv`, `results/07_fig_enem.pdf` |
 | `08_atualizacao_2025.py` | 2025 checks: lagged INSE, spending and Ideb change by INSE fifth, placebo regressions, samples without implausible scores, median regression, VAAR of 2025, networks with very high Saeb scores | `results/08_*.csv` |
 | `09_publica_privada.py` | Public versus private schools in the Saeb 2023, with and without the INSE of the student and of the school | `results/09_*.csv` |
+| `10_alfabetizacao.py` | Literacy at the end of the 2nd grade in the federal Saeb 2023 by state, Ceará's networks with very high Ideb, and median spending by state | `results/10_*.csv` |
 
 Run them in order from `code/` with Python 3 (pandas, numpy, scipy, openpyxl and matplotlib; script 08
 also needs `pdftotext`, from poppler):
@@ -137,6 +156,7 @@ python 06_extremos.py
 python 07_enem.py
 python 08_atualizacao_2025.py
 python 09_publica_privada.py
+python 10_alfabetizacao.py
 ```
 
 Script 01 makes one API call per municipality and year (about 22,000 calls for four years; a few
@@ -203,7 +223,7 @@ Municipalities may correct their DCA after the deadline, so a new download may d
 | `pop_censo2022.json` | IBGE, SIDRA, table 4709 (resident population, Censo 2022), `https://apisidra.ibge.gov.br/` |
 | `idhm_ipeadata.json` | Ipea, Ipeadata, series ADH_IDHM (IDHM 2010, Atlas do Desenvolvimento Humano), `https://www.ipeadata.gov.br/api/` |
 | `microdados_enem_2023.zip` | Inep, Microdados do Enem 2023, `https://download.inep.gov.br/microdados/` |
-| `microdados_saeb_2023.zip` | Inep, Microdados do Saeb 2023 (student files of the 5th and 9th grades and of ensino médio), `https://download.inep.gov.br/microdados/` |
+| `microdados_saeb_2023.zip` | Inep, Microdados do Saeb 2023 (student files of the 2nd, 5th and 9th grades and of ensino médio), `https://download.inep.gov.br/microdados/` |
 | `divulgacao_brasil_ideb_2025.zip` | Inep, Ideb, resultados 2005-2025 for Brazil by network (national mean of private schools), `https://download.inep.gov.br/ideb/resultados/` |
 | `data/fnde/portaria_interministerial_5_2026.pdf` | MEC/MF, Portaria Interministerial nº 5, de 29 de abril de 2026 (Fundeb annual adjustment of 2025, VAAF, VAAT and VAAR by government), FNDE site |
 

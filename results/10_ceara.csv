@@ -1,0 +1,185 @@
+CO_MUNICIPIO;NO_MUNICIPIO;VL_OBSERVADO_2023;VL_OBSERVADO_2025;VL_NOTA_MATEMATICA_2025;VL_NOTA_PORTUGUES_2025;ideb_2025_9_5_ou_mais;cem_por_cento_alfabetizados_2024
+2300101.0;Abaiara;6.3;6.8;243.22;230.83;False;False
+2300150.0;Acarape;5.6;6.0;217.83;214.23;False;False
+2300200.0;Acaraú;6.5;8.7;298.98;276.89;False;False
+2300309.0;Acopiara;5.8;6.2;222.73;219.95;False;False
+2300408.0;Aiuaba;6.2;6.9;247.23;229.37;False;False
+2300507.0;Alcântaras;7.8;9.8;328.36;311.52;True;False
+2300606.0;Altaneira;8.4;9.8;333.3;312.69;True;False
+2300705.0;Alto Santo;6.7;7.0;251.94;234.43;False;False
+2300754.0;Amontada;6.1;6.5;232.46;226.04;False;False
+2300804.0;Antonina do Norte;5.6;6.1;225.43;212.91;False;False
+2300903.0;Apuiarés;6.8;6.6;232.89;228.89;False;False
+2301000.0;Aquiraz;6.2;6.1;219.44;220.87;False;False
+2301109.0;Aracati;6.7;6.9;246.25;236.54;False;False
+2301208.0;Aracoiaba;6.1;7.0;249.41;234.79;False;False
+2301257.0;Ararendá;9.4;9.8;330.01;314.74;True;False
+2301307.0;Araripe;6.0;6.0;223.33;216.66;False;False
+2301406.0;Aratuba;6.1;6.5;227.7;227.84;False;False
+2301505.0;Arneiroz;5.8;5.5;206.19;199.07;False;False
+2301604.0;Assaré;6.1;7.4;259.32;245.79;False;False
+2301703.0;Aurora;5.5;5.8;215.14;203.31;False;False
+2301802.0;Baixio;6.1;5.6;214.11;196.14;False;False
+2301851.0;Banabuiú;5.7;5.8;211.01;212.02;False;False
+2301901.0;Barbalha;5.5;5.9;215.2;211.23;False;False
+2301950.0;Barreira;6.1;6.5;232.99;225.38;False;False
+2302008.0;Barro;6.0;5.9;218.51;206.09;False;False
+2302057.0;Barroquinha;7.4;7.4;264.67;239.84;False;False
+2302107.0;Baturité;5.8;5.5;200.95;204.32;False;False
+2302206.0;Beberibe;6.1;6.7;238.93;230.71;False;False
+2302305.0;Bela Cruz;7.1;8.2;276.27;273.64;False;False
+2302404.0;Boa Viagem;5.8;6.6;236.72;227.42;False;False
+2302503.0;Brejo Santo;6.3;6.3;230.51;218.4;False;False
+2302602.0;Camocim;7.0;7.9;274.6;256.14;False;False
+2302701.0;Campos Sales;5.5;5.7;209.57;207.01;False;False
+2302800.0;Canindé;6.8;7.3;256.94;242.16;False;False
+2302909.0;Capistrano;5.7;5.6;206.48;205.03;False;False
+2303006.0;Caridade;6.8;7.4;263.4;243.84;False;False
+2303105.0;Cariré;7.2;9.6;323.97;299.5;True;False
+2303204.0;Caririaçu;5.9;6.0;219.36;211.27;False;False
+2303303.0;Cariús;6.9;7.3;261.15;238.89;False;False
+2303402.0;Carnaubal;6.5;8.4;286.96;274.92;False;False
+2303501.0;Cascavel;7.1;6.6;235.22;226.21;False;False
+2303600.0;Catarina;5.5;6.3;227.57;217.68;False;False
+2303659.0;Catunda;8.3;10.0;345.06;323.22;True;True
+2303709.0;Caucaia;5.5;5.7;211.34;207.87;False;False
+2303808.0;Cedro;6.9;7.1;252.29;236.64;False;False
+2303907.0;Chaval;6.5;6.1;218.54;216.86;False;False
+2303931.0;Choró;5.9;7.5;267.06;245.25;False;False
+2303956.0;Chorozinho;6.5;7.1;248.56;242.71;False;False
+2304004.0;Coreaú;9.5;10.0;349.74;335.32;True;True
+2304103.0;Crateús;6.5;8.5;293.27;273.26;False;False
+2304202.0;Crato;6.5;6.6;236.07;228.7;False;False
+2304236.0;Croatá;8.8;9.5;322.94;297.38;True;False
+2304251.0;Cruz;8.8;10.0;346.16;324.24;True;False
+2304269.0;Deputado Irapuan Pinheiro;9.4;9.9;333.43;315.78;True;False
+2304277.0;Ereré;5.7;6.3;222.19;224.02;False;False
+2304285.0;Eusébio;7.2;7.1;250.99;238.46;False;False
+2304301.0;Farias Brito;6.4;6.5;234.08;222.88;False;False
+2304350.0;Forquilha;6.7;9.1;312.29;285.73;False;True
+2304400.0;Fortaleza;5.9;6.1;218.34;218.89;False;False
+2304459.0;Fortim;7.1;6.8;238.27;233.93;False;False
+2304509.0;Frecheirinha;7.6;7.4;262.76;245.3;False;False
+2304608.0;General Sampaio;6.1;6.2;225.71;219.43;False;False
+2304657.0;Graça;6.9;7.8;273.74;251.39;False;True
+2304707.0;Granja;7.5;8.2;287.18;261.82;False;False
+2304806.0;Granjeiro;7.4;6.0;225.66;204.23;False;False
+2304905.0;Groaíras;7.8;8.7;300.11;275.96;False;False
+2304954.0;Guaiúba;5.5;6.7;236.9;231.64;False;False
+2305001.0;Guaraciaba do Norte;8.3;8.5;295.0;267.54;False;False
+2305100.0;Guaramiranga;6.8;6.6;235.1;229.7;False;False
+2305209.0;Hidrolândia;7.4;6.9;247.54;232.19;False;False
+2305233.0;Horizonte;7.0;7.5;269.62;244.64;False;False
+2305266.0;Ibaretama;4.9;6.0;220.53;212.06;False;False
+2305308.0;Ibiapina;7.1;6.1;221.42;213.44;False;False
+2305332.0;Ibicuitinga;5.9;6.5;231.43;226.57;False;False
+2305357.0;Icapuí;6.0;6.4;235.65;215.7;False;False
+2305407.0;Icó;5.6;6.6;237.1;226.15;False;False
+2305506.0;Iguatu;5.7;6.1;220.58;214.76;False;False
+2305605.0;Independência;9.6;9.8;337.06;312.71;True;False
+2305654.0;Ipaporanga;8.5;9.9;339.72;320.01;True;False
+2305704.0;Ipaumirim;6.0;6.8;246.76;228.15;False;False
+2305803.0;Ipu;6.7;7.9;268.79;264.6;False;False
+2305902.0;Ipueiras;7.6;8.1;272.64;269.84;False;False
+2306009.0;Iracema;5.8;6.2;221.78;218.2;False;False
+2306108.0;Irauçuba;6.7;6.4;229.79;222.97;False;False
+2306207.0;Itaiçaba;6.8;7.5;264.76;246.3;False;False
+2306256.0;Itaitinga;6.3;6.7;241.49;226.64;False;False
+2306306.0;Itapajé;7.0;6.9;243.86;237.67;False;False
+2306405.0;Itapipoca;6.4;6.7;240.46;227.48;False;False
+2306504.0;Itapiúna;7.4;5.6;208.22;203.37;False;False
+2306553.0;Itarema;6.7;8.2;286.01;263.69;False;False
+2306603.0;Itatira;6.9;7.8;272.14;253.42;False;False
+2306702.0;Jaguaretama;6.2;6.8;240.23;235.95;False;False
+2306801.0;Jaguaribara;6.6;6.9;247.65;231.55;False;False
+2306900.0;Jaguaribe;6.7;6.7;242.62;227.04;False;False
+2307007.0;Jaguaruana;6.5;6.7;240.16;231.35;False;False
+2307106.0;Jardim;5.6;5.7;214.63;202.41;False;False
+2307205.0;Jati;6.5;5.4;205.68;193.86;False;False
+2307254.0;Jijoca de Jericoacoara;9.7;9.5;325.93;298.16;True;False
+2307304.0;Juazeiro do Norte;5.5;5.6;207.2;203.74;False;False
+2307403.0;Jucás;7.0;6.8;247.2;226.72;False;False
+2307502.0;Lavras da Mangabeira;5.4;6.0;221.4;209.04;False;False
+2307601.0;Limoeiro do Norte;7.2;7.2;253.65;243.4;False;False
+2307635.0;Madalena;5.8;7.5;270.32;239.03;False;False
+2307650.0;Maracanaú;6.4;6.8;240.08;235.17;False;False
+2307700.0;Maranguape;5.9;6.1;218.91;218.87;False;False
+2307809.0;Marco;6.8;7.6;264.35;251.51;False;False
+2307908.0;Martinópole;7.9;7.8;275.58;251.75;False;False
+2308005.0;Massapê;7.2;9.3;317.32;291.44;False;False
+2308104.0;Mauriti;5.5;5.8;215.3;202.99;False;False
+2308203.0;Meruoca;8.1;8.7;299.65;274.36;False;False
+2308302.0;Milagres;5.7;5.5;209.78;195.15;False;False
+2308351.0;Milhã;9.1;9.7;337.12;305.69;True;False
+2308377.0;Miraíma;5.4;6.3;224.35;222.15;False;False
+2308401.0;Missão Velha;5.5;5.4;205.89;193.6;False;False
+2308500.0;Mombaça;7.6;9.6;325.77;301.68;True;False
+2308609.0;Monsenhor Tabosa;9.0;9.4;317.53;297.65;False;False
+2308708.0;Morada Nova;6.0;6.0;217.69;211.76;False;False
+2308807.0;Moraújo;6.7;7.4;262.81;242.81;False;False
+2308906.0;Morrinhos;6.8;6.4;230.89;223.38;False;False
+2309003.0;Mucambo;9.5;9.3;325.06;284.36;False;False
+2309102.0;Mulungu;6.3;;;;False;False
+2309201.0;Nova Olinda;8.4;9.9;338.71;319.27;True;False
+2309300.0;Nova Russas;7.2;9.7;338.1;306.98;True;False
+2309409.0;Novo Oriente;9.5;9.6;332.78;304.6;True;True
+2309458.0;Ocara;6.1;5.9;215.22;208.7;False;False
+2309508.0;Orós;6.5;7.2;263.92;239.66;False;False
+2309607.0;Pacajus;7.4;7.1;251.6;236.99;False;False
+2309706.0;Pacatuba;5.8;6.1;220.73;217.53;False;False
+2309805.0;Pacoti;6.6;6.7;234.85;233.19;False;False
+2309904.0;Pacujá;6.2;5.8;219.4;200.34;False;True
+2310001.0;Palhano;6.8;6.7;243.35;226.68;False;False
+2310100.0;Palmácia;6.7;6.8;238.86;235.35;False;False
+2310209.0;Paracuru;7.3;7.7;271.22;252.8;False;False
+2310258.0;Paraipaba;7.4;8.2;279.52;272.29;False;False
+2310308.0;Parambu;6.6;6.5;232.77;224.39;False;False
+2310407.0;Paramoti;6.1;7.8;277.26;250.86;False;False
+2310506.0;Pedra Branca;9.5;10.0;338.88;323.96;True;False
+2310605.0;Penaforte;6.2;5.7;213.75;202.21;False;False
+2310704.0;Pentecoste;6.7;5.5;206.99;199.55;False;False
+2310803.0;Pereiro;8.1;7.8;268.7;256.38;False;False
+2310852.0;Pindoretama;6.5;7.4;260.36;244.79;False;False
+2310902.0;Piquet Carneiro;8.8;9.8;326.53;314.56;True;True
+2310951.0;Pires Ferreira;10.0;10.0;350.74;336.24;True;True
+2311009.0;Poranga;6.7;7.2;256.26;244.02;False;True
+2311108.0;Porteiras;6.4;6.1;224.88;211.49;False;False
+2311207.0;Potengi;5.5;6.5;236.65;225.11;False;False
+2311231.0;Potiretama;6.6;6.8;244.44;228.39;False;False
+2311264.0;Quiterianópolis;6.4;6.8;245.21;230.56;False;False
+2311306.0;Quixadá;6.0;5.8;212.36;207.22;False;False
+2311355.0;Quixelô;5.7;6.5;237.0;220.93;False;False
+2311405.0;Quixeramobim;6.7;7.1;251.42;241.29;False;False
+2311504.0;Quixeré;6.7;7.1;255.49;231.65;False;False
+2311603.0;Redenção;6.2;6.2;222.33;218.4;False;False
+2311702.0;Reriutaba;7.2;7.2;255.8;239.5;False;False
+2311801.0;Russas;7.0;7.1;252.16;236.21;False;False
+2311900.0;Saboeiro;5.8;6.4;240.39;214.36;False;False
+2311959.0;Salitre;6.2;6.5;235.35;220.34;False;False
+2312007.0;Santana do Acaraú;6.3;7.8;276.19;252.44;False;False
+2312106.0;Santana do Cariri;5.7;5.4;207.17;194.19;False;False
+2312205.0;Santa Quitéria;6.2;7.4;264.45;243.82;False;False
+2312304.0;São Benedito;7.7;7.4;266.48;237.01;False;False
+2312403.0;São Gonçalo do Amarante;6.4;6.8;241.87;230.82;False;False
+2312502.0;São João do Jaguaribe;6.4;7.4;261.8;246.14;False;False
+2312601.0;São Luís do Curu;5.5;5.9;215.53;210.62;False;False
+2312700.0;Senador Pompeu;8.7;9.1;313.76;284.74;False;False
+2312809.0;Senador Sá;7.3;9.1;310.94;288.63;False;False
+2312908.0;Sobral;9.6;9.6;321.18;304.76;True;False
+2313005.0;Solonópole;7.5;8.0;277.95;258.47;False;False
+2313104.0;Tabuleiro do Norte;6.7;6.7;237.15;230.66;False;False
+2313203.0;Tamboril;9.2;9.3;320.25;289.86;False;False
+2313252.0;Tarrafas;6.2;6.4;235.62;217.92;False;False
+2313302.0;Tauá;6.2;7.0;248.25;235.09;False;False
+2313351.0;Tejuçuoca;6.5;6.1;223.37;214.73;False;False
+2313401.0;Tianguá;6.1;6.4;233.92;221.6;False;False
+2313500.0;Trairi;6.3;6.1;225.35;213.16;False;False
+2313559.0;Tururu;5.8;5.4;204.91;194.57;False;False
+2313609.0;Ubajara;7.4;8.7;300.27;274.7;False;False
+2313708.0;Umari;6.2;5.5;201.54;202.44;False;False
+2313757.0;Umirim;5.5;6.2;225.42;215.17;False;False
+2313807.0;Uruburetama;6.3;7.1;244.15;244.25;False;False
+2313906.0;Uruoca;7.7;8.3;292.38;262.77;False;False
+2313955.0;Varjota;6.9;8.0;285.24;250.24;False;False
+2314003.0;Várzea Alegre;6.7;6.6;237.63;226.87;False;False
+2314102.0;Viçosa do Ceará;6.2;6.7;239.96;228.7;False;False
