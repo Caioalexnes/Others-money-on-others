@@ -26,6 +26,8 @@ The repository does three things:
    taxes, and the Saeb scores of private and public students of the same socioeconomic level; and it
    tests whether Ceará's advantage is regional or confined to its public network.
 8. It does the same comparison for ensino médio, run by the state networks.
+9. It assembles the data of the federal VAAT complementation of the Fundeb (2021 to 2025) and holds the
+   pre-analysis plan of a study of its effects on spending, school inputs and learning (`pap/`).
 
 All data are public.
 
@@ -163,6 +165,22 @@ of ensino médio (Saeb 2023, same student INSE), by 20 to 58 points, 36 on the m
 public network is cheaper, has the largest gap. In Ceará, 97% of the state network's students are in ensino
 médio. See `results/12_medio.csv`, `results/12_tabela_medio.tex` and `results/12_fig_medio.pdf`.
 
+## Pre-analysis plan: the VAAT complementation
+
+`pap/vaat_pap.tex` (and its PDF) pre-specifies the causal analysis of the VAAT complementation of the
+Fundeb: since 2021 the Union tops up every school network whose resources per weighted student fall
+below a national minimum. The main design is a difference-in-differences with a continuous dose, the
+complementation that the legal formula predicts from the 2021 VAAT of each network, which uses 2019
+revenues; a comparison between the municipal and the state network of the same municipality; and a
+regression kink at the 2021 threshold for spending. The plan was written before any outcome was
+related to the treatment. Scripts 13 and 14 reproduce every number in it and use no outcome data in
+relation to the dose. The outcome regressions will be added only after the plan is deposited.
+
+The 2021 VAAT of the 5,234 networks habilitated by mid-2021 comes from the annex of the Câmara's
+Estudo Técnico 15/2021, which reproduces Portarias Interministeriais 3/2021 and 4/2021. For the 1,422
+recipients that are also in the official December 2021 list (Portaria 10/2021), the two sources agree
+to within 0.024%. Another 105 recipients were habilitated later and are kept apart.
+
 ## Scripts (`code/`)
 
 | Script | What it does | Output |
@@ -180,9 +198,11 @@ médio. See `results/12_medio.csv`, `results/12_tabela_medio.tex` and `results/1
 | `10_alfabetizacao.py` | Literacy at the end of the 2nd grade in the federal Saeb 2023 by state, Ceará's networks with very high Ideb, and median spending by state | `results/10_*.csv` |
 | `11_custo_desempenho_uf.py` | Cost (municipal spending versus private tuition net of taxes) and Saeb performance by state, spending in months of local earnings, and the test of a regional effect in Ceará; table and figure of the essay | `results/11_*` |
 | `12_ensino_medio.py` | Ensino médio: spending per student of the state networks versus private tuition weighted by the network's stage mix, and the Saeb at the end of ensino médio; table and figure of the essay | `results/12_*` |
+| `13_vaat.py` | VAAT complementation, 2021 to 2025: the 2021 VAAT of every habilitated network, the recipients and amounts of each year, the validation against the official 2021 list, the position relative to the 2021 threshold, the money received and the dose predicted by the formula, and diagnostics that use no outcome data | `results/13_*` |
+| `14_poder.py` | Power calculations of the pre-analysis plan, from pre-2019 outcome changes and the dose, without relating them | `results/14_*` |
 
-Run them in order from `code/` with Python 3 (pandas, numpy, scipy, openpyxl and matplotlib; script 08
-also needs `pdftotext`, from poppler):
+Run them in order from `code/` with Python 3 (pandas, numpy, scipy, openpyxl and matplotlib; scripts 08
+and 13 also need `pdftotext`, from poppler):
 
 ```
 python 00_download.py
@@ -198,6 +218,8 @@ python 09_publica_privada.py
 python 10_alfabetizacao.py
 python 11_custo_desempenho_uf.py
 python 12_ensino_medio.py
+python 13_vaat.py
+python 14_poder.py
 ```
 
 Script 01 makes one API call per municipality and year (about 22,000 calls for four years; a few
@@ -271,9 +293,13 @@ Municipalities may correct their DCA after the deadline, so a new download may d
 | `microdados_saeb_2023.zip` | Inep, Microdados do Saeb 2023 (student files of the 2nd, 5th and 9th grades and of ensino médio), `https://download.inep.gov.br/microdados/` |
 | `divulgacao_brasil_ideb_2025.zip` | Inep, Ideb, resultados 2005-2025 for Brazil by network (national mean of private schools), `https://download.inep.gov.br/ideb/resultados/` |
 | `data/fnde/portaria_interministerial_5_2026.pdf` | MEC/MF, Portaria Interministerial nº 5, de 29 de abril de 2026 (Fundeb annual adjustment of 2025, VAAF, VAAT and VAAR by government), FNDE site |
+| `data/fnde/vaat/et15_2021.pdf` | Câmara dos Deputados, Consultoria de Orçamento, Estudo Técnico nº 15/2021 (C. R. Tanno, August 2021); its annex gives the 2021 VAAT, revenues and weighted enrollment of every habilitated network |
+| `data/fnde/vaat/portaria_10_2021.pdf`, `portaria_6_2022.pdf` | Diário Oficial da União, Portarias Interministeriais nº 10/2021 and nº 6/2022 (Annex III: VAAT complementation by network), FNDE site |
+| `data/fnde/vaat/anexo3_portaria_*.pdf` | FNDE, Annex III of the December portarias of 2023 (nº 7), 2024 (nº 13) and 2025 (nº 13) |
+| `data/fnde/vaat/acerto_vaat_2023_portaria_7_2026.xlsx`, `ajuste_vaat_2024_portaria_3_2025.xlsx` | FNDE, adjustments of the VAAT complementation of 2023 and 2024 (Annex II) |
 
-SHA-256 checksums of the files used are in `DATA_SHA256SUMS.txt`. The Inep files and the Portaria are
-not included because of their size; the VAAR extracted from the Portaria is in `results/08_vaar_2025.csv`.
+SHA-256 checksums of the files used are in `DATA_SHA256SUMS.txt`. The Inep files, the Portarias and the
+Câmara study are not included because of their size; the VAAR extracted from the Portaria is in `results/08_vaar_2025.csv`.
 
 **Inep's certificate.** `download.inep.gov.br` does not send the intermediate certificate of its TLS
 chain, so command-line downloads fail certificate verification (browsers fetch the missing
